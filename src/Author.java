@@ -18,7 +18,7 @@ public class Author {
     }
 
     ////////////////////////////////////////////////////////
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,26 +39,26 @@ public class Author {
                 ", lastNameAuthor='" + lastNameAuthor + '\'' +
                 '}';
     }
+*/
 
-////////////////////////////////////////////////////////
+    @Override
+    public String toString() {
+        return "Imya avtora: " + this.firstNameAuthor + " " + this.lastNameAuthor;
+    }
 
-//    @Override
-//    public String toString() {
-//        return "Imya avtora: " + this.firstNameAuthor + " " + this.lastNameAuthor;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return this.firstNameAuthor.hashCode() + this.lastNameAuthor.hashCode();
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        Author ob = (Author) obj;
-//        if (this == obj) {
-//            return true;
-//        }
-//        return this.hashCode() == ob.hashCode();
-//    }
+    @Override
+    public int hashCode() {
+        return this.firstNameAuthor.hashCode() + this.lastNameAuthor.hashCode();
+    }
 
+    public boolean equals(Object obj) {
+        Author ob = (Author) obj;
+        if (this == obj) {
+            return true;
+        } else if (this.firstNameAuthor == ob.firstNameAuthor && this.lastNameAuthor == ob.lastNameAuthor && this.hashCode() == ob.hashCode()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

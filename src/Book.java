@@ -28,7 +28,7 @@ public class Book {
     }
 
 //////////////////////////////////////////////////////
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,21 +50,27 @@ public class Book {
                 ", publishingYear=" + publishingYear +
                 '}';
     }
+*/
+    @Override
+    public String toString() {
+        return "Kniga: " + this.nameBook + " - " + this.authorBook + " - " + this.publishingYear;
+    }
 
-//    @Override
-//    public String toString() {
-//        return "Kniga: " + this.nameBook + " - " + this.authorBook + " - " + this.publishingYear;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return this.nameBook.hashCode() + this.authorBook.hashCode() + this.publishingYear;
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        Book ob = (Book) obj;
-//        return this.hashCode() == ob.hashCode();
-//    }
+    @Override
+    public int hashCode() {
+        return this.nameBook.hashCode() + this.authorBook.hashCode() + this.publishingYear;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Book ob = (Book) obj;
+        if (this == obj) {
+            return true;
+        } else if (this.nameBook == ob.nameBook && this.authorBook == ob.authorBook && this.publishingYear == ob.publishingYear && this.hashCode() == ob.hashCode()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
